@@ -75,3 +75,24 @@ it("finds a form and successfully creates ", function() {
       wrapper.find("div").last().text()
     ).toEqual('X');
   });
+
+  it("deletes the box ", function() {
+    const wrapper = mount(<BoxList />);
+
+    wrapper
+    .instance()
+    .create({ width: '40px', height: '40px', backgroundColor: 'blue' });
+
+    expect(wrapper.state().boxes.length).toEqual(1);
+
+    wrapper
+    .instance()
+    .delete(0);
+
+    // since we are appending to the end, find the last item,
+    // and make sure it matches what we have just created
+    expect(wrapper.state().boxes.length).toEqual(0);
+    //  expect(
+    //   wrapper.find("div").last().text()
+    // ).toEqual('X');
+  });
