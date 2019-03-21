@@ -9,6 +9,7 @@ class NewBoxForm extends Component {
             backgroundColor: ""
         };
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this); 
     }
 
     handleChange(evt){
@@ -33,13 +34,13 @@ class NewBoxForm extends Component {
                 <form onSubmit={ this.handleSubmit }>
 
                     <label htmlFor='width' >width: </label>
-                    <input id='width' name='width' value={ this.state.width } onClick={ this.handleChange }> </input>
+                    <input id='width' name='width' value={ this.state.width } onChange={ this.handleChange } /> 
                     
                     <label htmlFor='height' >Height: </label>
-                    <input id='height' name='height' value={ this.state.height } onClick={ this.handleChange }> </input>
+                    <input id='height' name='height' value={ this.state.height } onChange={ this.handleChange } /> 
 
                     <label htmlFor='backgroundColor' >Background Color: </label>
-                    <input id='backgroundColor' name='backgroundColor' value={ this.state.backgroundColor } onClick={ this.handleChange }> </input>
+                    <input id='backgroundColor' name='backgroundColor' value={ this.state.backgroundColor } onChange={ this.handleChange } /> 
                     <button>CreateBox</button>
                 </form>
             </div>
