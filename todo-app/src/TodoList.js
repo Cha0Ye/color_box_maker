@@ -16,23 +16,20 @@ class TodoList extends Component {
 
     create(obj) {
         const newtodo = { ...obj, id: uuid() };
-        this.setState( state => ({ todolist:[...state.todolist, newtodo] }));
+        this.setState(state => ({ todolist: [...state.todolist, newtodo] }));
     }
 
     delete(n) {
         const newTodo = this.state.todolist.filter((ele, idx) => idx !== n);
-        this.setState({todolist: newTodo});
-    }
-
-    renderTodo(){
-        this.state.todolist.map((ele, idx) => <Todo id={ele.id} text={ele} triggerDelete={() => this.delete(idx)}/>)
+        this.setState({ todolist: newTodo });
     }
 
     render() {
+        const todos = this.state.todolist.map((ele, idx) => <Todo key={ele.id} text={ ele.text } triggerDelete={() => this.delete(idx)} />);
         return (
             <div className="TodoList">
-                <NewTodoForm triggerCreate={ this.create }/>
-                {this.renderTodo()}
+                <NewTodoForm triggerCreate={this.create} />
+                {todos}
             </div>
         );
     }
