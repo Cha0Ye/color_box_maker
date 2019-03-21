@@ -12,6 +12,7 @@ class TodoList extends Component {
         }
         this.create = this.create.bind(this);
         this.delete = this.delete.bind(this);
+        this.update = this.update.bind(this);
     }
 
     create(obj) {
@@ -24,8 +25,14 @@ class TodoList extends Component {
         this.setState({ todolist: newTodo });
     }
 
+    update(n, obj) {
+        const updatetodo = {...obj, id: this.state.todolist[n].id};
+        const updateTodo = this.state.todolist.map((ele, idx) => idx === n ? updatetodo: ele);
+        this.setState({ todolist: updateTodo });
+    }
+
     render() {
-        const todos = this.state.todolist.map((ele, idx) => <Todo key={ele.id} text={ ele.text } triggerDelete={() => this.delete(idx)} />);
+        const todos = this.state.todolist.map((ele, idx) => <Todo key={ele.id} text={ ele.text } triggerDelete={() => this.delete(idx)} triggerEdit={this.update} id={idx}/>);
         return (
             <div className="TodoList">
                 <NewTodoForm triggerCreate={this.create} />
