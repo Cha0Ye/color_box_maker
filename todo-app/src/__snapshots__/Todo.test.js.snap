@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<Todo>
+  <div
+    className="Todo"
+  >
+    <div>
+      <button>
+        X
+      </button>
+      <button
+        onClick={[Function]}
+      >
+         edit 
+      </button>
+    </div>
+  </div>
+</Todo>
+`;

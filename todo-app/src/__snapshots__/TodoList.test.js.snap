@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<TodoList>
+  <div
+    className="TodoList"
+  >
+    <NewTodoForm
+      triggerCreate={[Function]}
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <label
+          htmlFor="text"
+        >
+          Todo: 
+        </label>
+        <input
+          id="text"
+          name="text"
+          onChange={[Function]}
+          value=""
+        />
+        <button>
+          Create
+        </button>
+      </form>
+    </NewTodoForm>
+  </div>
+</TodoList>
+`;
